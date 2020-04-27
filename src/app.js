@@ -49,23 +49,25 @@ app.get('/weather', (req, res) => {
         })
     }
 
-    geocode(req.query.address, (error, { latitude, longitude, location } = {}) => {
-        if (error) {
-            return res.send({ error })
-        }
+    // geocode(req.query.address, (error, { latitude, longitude, location } = {}) => {
+    //     if (error) {
+    //         return res.send({ error })
+    //     }
 
-        forecast(latitude, longitude, (error, forecastData) => {
-            if (error) {
-                return res.send({ error })
-            }
+    //     forecast(latitude, longitude, (error, forecastData) => {
+    //         if (error) {
+    //             return res.send({ error })
+    //         }
 
-            res.send({
-                forecast: forecastData,
-                location,
-                address: req.query.address
-            })
-        })
-    })
+    //         res.send({
+    //             forecast: forecastData,
+    //             location,
+    //             address: req.query.address
+    //         })
+    //     })
+    // })
+
+    return res.send("Nice app")
 })
 
 app.get('/products', (req, res) => {
@@ -98,5 +100,5 @@ app.get('*', (req, res) => {
 })
 
 app.listen(3000, () => {
-    console.log( `Server is up on port . ${port}`)
+    console.log(`Server is up on port . ${port}`)
 })
